@@ -1,0 +1,12 @@
+<h1>File Upload</h1>
+
+
+	<div ng-controller="FileUpCtrl as fileUp">
+		<h1>{{fileUp.heading}}</h1>
+		<form ng-submit="fileUp.submit()">
+			<input type="file" accept="image/*" />
+			<input type="submit" value="Upload Now!" />
+		</form>
+		<img ng-src="{{photo.url}}" ng-repeat="photo in fileUp.photos" />
+	</div>
+

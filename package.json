@@ -1,0 +1,27 @@
+{
+  "name": "simo",
+  "version": "1.0.0",
+  "description": "The notes sharing app for college",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/set2k6/simo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/set2k6/simo/issues"
+  },
+  "homepage": "https://github.com/set2k6/simo#readme",
+  "dependencies": {
+    "bower": "^1.7.9",
+    "gulp": "^3.9.1",
+    "http-server": "^0.9.0"
+  },
+  "devDependencies": {
+    "gulp-connect": "^4.1.0"
+  }
+}

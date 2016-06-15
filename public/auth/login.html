@@ -1,0 +1,16 @@
+
+<h1>Welcome to SiMO</h1>
+
+	<uib-accordion class="accordion" close-others="oneAtATime">
+		<uib-accordion-group is-open="status.open">
+			<uib-accordion-heading>
+			Click to login! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+			</uib-accordion-heading>
+			<form ng-submit="auth.login()">
+				<input type="email" ng-model="auth.user.email" placeholder="email">
+				<input type="password" ng-model="auth.user.password" placeholder="password">
+				<input type="submit" value="Login">
+			</form>
+			Hope you didn't forget your password!
+		</uib-accordion-group>
+	</uib-accordion>
