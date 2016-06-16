@@ -1,12 +1,6 @@
-angular.module('simo', [])
+angular.module('simo')
 	.factory('InitializeFirebaseFactory', () => {
-		var config = {
-			apiKey: "AIzaSyCcqIfV5WqHbjdLBwYENErYX9bwb0DXomA",
-			authDomain: "simo-b6ffe.firebaseapp.com",
-			databaseURL: "https://simo-b6ffe.firebaseio.com",
-			storageBucket: "simo-b6ffe.appspot.com",
-			};
-			firebase.initializeApp(config);
+
 		return {
 			firebaseReference () {
 				return firebase;
@@ -34,22 +28,24 @@ angular.module('simo', [])
 						alert('Error Loggin Out');
 					})
 				))
-			},
-
-			getUser () {
-				return currentUser;
-			}
-		};
-	})
-
-
-	.factory('UserFactory', ($http) => {
-
-
-		return {
-			submitInfo (type, noteInfo) {
-				return $http.post(`https://simo-b6ffe.firebaseio.com/.json`, noteInfo)
 			}
 		}
 	})
+
+	// 		getUser () {
+	// 			return currentUser;
+	// 		}
+	// 	};
+	// })
+
+
+	// .factory('UserFactory', ($http) => {
+
+
+	// 	return {
+	// 		submitInfo (type, noteInfo) {
+	// 			return $http.post(`https://simo-b6ffe.firebaseio.com/.json`, noteInfo)
+	// 		}
+	// 	}
+	// })
 

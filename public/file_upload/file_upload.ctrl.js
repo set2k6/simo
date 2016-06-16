@@ -5,13 +5,14 @@ angular.module("simo")
 		fileUp.heading = "Upload your notes!"
 		// fileUp.photoURLs = []
 
-		 $timeout()
-      .then(() => firebase.database().ref('/images').once('value'))
-      .then(snap => snap.val())
-      .then(data => fileUp.photos = data)
-
+		firebase.database().ref('/images').on('value', snap => (
+			$timeout()
+				.then(() => snap.val())
+				.then(data => fileUp.photos = data)
+		))
 
 		fileUp.submit = function () {
+			console.log("submit")
 			const input = document.querySelector('[type="file"]')
 			const file = input.files[0]
 			// console.dir(input.file)
@@ -22,7 +23,6 @@ angular.module("simo")
 
 			 fileUpFactory.send(file, randomPath)
 				.then(res => {
-					fileUp.photoURLs.push(res.downloadURL)
 					return res.downloadURL
 				})
 				.then((url) => {
