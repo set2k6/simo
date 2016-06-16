@@ -1,13 +1,12 @@
 angular.module('simo')
-	.factory('InitializeFirebaseFactory', () => {
+	// .factory('InitializeFirebaseFactory', () => {
 
-		return {
-			firebaseReference () {
-				return firebase;
-			}
-		};
-	})
-
+	// 	return {
+	// 		firebaseReference () {
+	// 			return firebase;
+	// 		}
+	// 	};
+	// })
 	.factory('AuthFactory', ($timeout) => {
 		let currentUser = null;
 
@@ -20,14 +19,15 @@ angular.module('simo')
 
 			logout () {
 			 return $timeout().then(() => (
-					firebase.auth().signOut().then(function() {
+					firebase.auth().signOut()).then(function() {
 						// Sign-out successful.
+						alert('Successfully Signed Out')
 						currentUser = null;
 					}, function(error) {
 						// An error happened.
 						alert('Error Loggin Out');
 					})
-				))
+				)
 			}
 		}
 	})

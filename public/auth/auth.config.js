@@ -6,4 +6,5 @@ angular.module('simo')
 				controllerAs: 'auth',
 				templateUrl: '/auth/login.html'
 			})
+			.otherwise('/')
 	})

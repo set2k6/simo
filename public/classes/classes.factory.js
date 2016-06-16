@@ -1,1 +1,1 @@
-// angular.module('simo')
+angular.module('simo')
