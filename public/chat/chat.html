@@ -1,0 +1,21 @@
+
+<div ng-app='simo'>
+	    {{"AngularJS Loaded"}}
+
+
+
+<div ng-controller="Chat" >
+  <p>Name : <input type="text" ng-model="newMessage.user"></p>
+  <p>Messagge :<input type="text" ng-model="newMessage.text"></p>
+  <button ng-click="newMessage">Enter</button>
+
+  	<ul>
+  		<li ng-repeat="message in messages">
+  			{{message.user}} dice :{{message.text}}
+  		</li>
+  	</ul>
+</div>
+
+
+
+</div>

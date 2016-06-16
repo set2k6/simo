@@ -9,12 +9,9 @@
 </head>
 
 <body ng-app="simo">
-<div ng-include="'auth/login.html'">
+<div ng-view>
 
 </div>
-	<!-- <div ng-controller="FileUpCtrl as fileUp">
-	<h1>S.i.M.O</h1>
-	</div> -->
 
 <script src="/lib/angular/angular.min.js"></script>
 <script src="/lib/angular-animate/angular-animate.min.js"></script>
@@ -23,10 +20,20 @@
 <script src="/lib/firebase/firebase.js"></script>
 
 <script src="/main.js"></script>
+<script src="/file_upload/firebase.config.js"></script>
 <script src="/file_upload/file_upload.js"></script>
 <script src="/file_upload/file_upload.ctrl.js"></script>
 <script src="/auth/login.ctrl.js"></script>
 <script src="/auth/auth.config.js"></script>
 <script src="/auth/auth.factory.js"></script>
+<script src="/chat/chat.config.js"></script>
+<script src="/chat/chat.factory.js"></script>
+<script src="/chat/chat.ctrl.js"></script>
+<script src="/classes/classes.config.js"></script>
+<script src="/classes/classes.factory.js"></script>
+<script src="/classes/classes.ctrl.js"></script>
+<script src="/study_groups/study.config.js"></script>
+<script src="/study_groups/study.factory.js"></script>
+<script src="/study_groups/study.ctrl.js"></script>
 </body>
 </html>
