@@ -1,6 +1,54 @@
 <div ng-controller="LogoutCtrl">
 	<input ng-click="logout()" type="button" value="Logout">
 </div>
-<h1>hey</h1>
+<h1>hey youre in classes</h1>
+
+		<section ng-controller="TodoCtrl">
+
+			<h1>{{title}}</h1>
+
+			<div>
+				<label for="potato">Potato</label>
+				<input id="potato" type="text" ng-model="potato">
+				<div>{{potato}}</div>
+
+				<label for="filter2">Filter 2</label>
+				<input id="filter2" type="text" ng-model="filter2">
+				<input type="checkbox" ng-model="variableName">
+				<div>{{variableName}}</div>
+
+				<form ng-submit="addTodo()">
+					<input type="text" ng-model="newTodo">
+					<div class="input-group">
+						<input name="taskType" type="radio" value="home" ng-model="taskType">Home
+						<input name="taskType" type="radio" value="work" ng-model="taskType">Work
+					</div>
+					{{homeTask}}
+					<button type="submit" class="btn-default">New Todo</button>
+				</form>
+
+
+
+				<div>
+					<label for="type">Task Type</label>
+					<select id="type"
+						ng-model="selectedTodo"
+						ng-options="item.name group by item.type for item in tasks">
+					</select>
+				</div>
+
+				<div>
+					<h2>You have selected {{selectedTodo.name}}</h2>
+				</div>
+
+
+
+				<div>
+					<ul ng-repeat="var_name in tasks | filter: potato">
+						<li>{{var_name.name}} <button ng-click="removeTodo(var_name)">Delete</button></li>
+					</ul>
+				</div>
+			</div>
+
 
 

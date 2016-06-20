@@ -1,33 +1,34 @@
-angular.module('simo')
- .controller('Chat', ['$scope','Message','firebase', function($scope, Message){
+// angular.module('simo')
+//  .controller('ChatCtrl', ['Message', function(Message){
+//  		const chat = this
+// 			chat.user = "Guest";
 
-			$scope.user = "Guest";
+// 			chat.messages = Message.all;
 
-			$scope.messages = Message.all;
+// 			chat.messageIn = function(message){
+// 				Message.create(message);
+// 			};
+// 	}])
 
-			$scope.newMessage = function(message){
-				Message.create(message);
-			};
-	}])
+// 	.factory('Message',() => {
+// 		// const messages = firebase.database().ref('/').child('messages').$asArray();
+// 		const messages = null
 
-	.factory('Message',() => {
-		const messages = $firebase(ref.child('messages')).$asArray();
+// 		const Message = {
+// 			all: messages,
+// 			create: function (message) {
+// 				return messages.add(message);
+// 			},
 
-		const Message = {
-			all: messages,
-			create: function (message) {
-				return messages.add(message);
-			},
+// 			get: function (messageId) {
+// 				return firebase.database().ref('messages').child(messageId).asObject();
+// 			},
 
-			get: function (messageId) {
-				return firebase.database().ref('messages').child(messageId).asObject();
-			},
+// 			delete: function (message) {
+// 				return messages.$remove(message);
+// 			}
+// 		};
 
-			delete: function (message) {
-				return messages.$remove(message);
-			}
-		};
+// 		return Message;
 
-		return Message;
-
-	})
+// 	})

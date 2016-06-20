@@ -6,4 +6,5 @@ angular.module('simo')
 				controllerAs: 'fileUp',
 				templateUrl: '/file_upload/file_upload.html'
 			})
+			.otherwise("/")
 	})

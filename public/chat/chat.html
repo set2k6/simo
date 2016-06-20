@@ -1,21 +1,93 @@
 
-<div ng-app='simo'>
-	    {{"AngularJS Loaded"}}
-
-
-
-<div ng-controller="Chat" >
-  <p>Name : <input type="text" ng-model="newMessage.user"></p>
-  <p>Messagge :<input type="text" ng-model="newMessage.text"></p>
-  <button ng-click="newMessage">Enter</button>
-
-  	<ul>
-  		<li ng-repeat="message in messages">
-  			{{message.user}} dice :{{message.text}}
-  		</li>
-  	</ul>
+<div ng-controller="LogoutCtrl">
+	<input ng-click="logout()" type="button" value="Logout">
 </div>
 
 
+<h1>Chat</h1>
 
+<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+  <a class="navmenu-brand" href="#">Brand</a>
+  <ul class="nav navmenu-nav">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">Link</a></li>
+    <li><a href="#">Link</a></li>
+  </ul>
+</nav>
+<div class="navbar navbar-default navbar-fixed-top">
+  <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
 </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md-12">
+
+            <div class="panel panel-primary"  ng-controller="ChatCtrl">
+              <div class="panel-heading" style="padding:0 0 0 8px;">
+                <span class="glyphicon glyphicon-user"></span>
+                <h6 class="panel-title" style="display:inline;">Chat</h6>
+                <div class="btn-group btn-group-xs pull-right">
+                  <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-lock"></span></button>
+                  <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-cog"></span></button>
+                  <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></button>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="panel-body" style="padding:0 4px;">
+                <div class="row">
+                  <div class="col-xs-12" style="max-height:300px;max-width:100%;overflow-y:auto;overflow-x:hidden;">
+                    <table class="table table-hover table-condensed" style="">
+                      <tr ng-hide="chatMessages.length === 0" ng-repeat="chat in chatMessages | orderBy:origDt | reverse"
+                          style="min-width:100%;max-width:100%;width:100%;">
+                        <td><img src="{{chat.icon}}" alt="" style="margin-top:8px;"/></td>
+                        <td>
+                          <h6>{{chat.username}}</h6>
+                        </td>
+                        <td>
+                        <p class="word-wrap:break-word"><small>{{chat.text}}</small></p>
+                        </td>
+                      </tr>
+                      <tr ng-show="chatMessages.length === 0">
+                        <td>
+                          <p>Nothin' here. <strong>Say something!</strong></p>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-footer">
+                <form>
+                  <div class="input-group input-group-sm">
+                    <span class="input-group-addon">
+                      <img src="http://placehold.it/16x16" alt="" />
+                    </span>
+                    <input type="text" class="form-control" ng-model="newChatMsg" placeholder="..."/>
+                    <span class="input-group-btn">
+                      <button class="btn btn-primary" type="submit" ng-click="addChat()">Send</button>
+                    </span>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10"></div>
+    </div>
+  </div>
+

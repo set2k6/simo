@@ -1,14 +1,10 @@
-angular.module('simo')
-	// .config(($routeProvider) => {
-	// 	$routeProvider
-	// 		.when('/', {
-	// 			controller: 'AddClassCtrl',
-	// 			controllerAs: 'classes',
-	// 			templateUrl: '/auth/login.html'
-	// 		})
-	// 		.when('/', {
-	// 			controller: 'AddClassCtrl',
-	// 			controllerAs: 'classes',
-	// 			templateUrl: '/auth/login.html'
-	// 		})
-	// })
+// angular.module('simo')
+// 	.config(($routeProvider) => {
+// 		$routeProvider
+// 			.when('/classes', {
+// 				controller: 'AddClassCtrl',
+// 				controllerAs: 'classes',
+// 				templateUrl: '/classes/classes.html'
+// 			})
+// 			.otherwise('/')
+// 	})
