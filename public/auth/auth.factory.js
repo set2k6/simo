@@ -32,6 +32,10 @@ angular.module('simo')
 		}
 	})
 
+$('.navmenu').offcanvas()
+
+
+
 	// 		getUser () {
 	// 			return currentUser;
 	// 		}

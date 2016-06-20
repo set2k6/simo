@@ -39,3 +39,5 @@ angular.module('simo')
 		return items.slice().reverse();
 	};
 });
+
+$('.navmenu').offcanvas()
