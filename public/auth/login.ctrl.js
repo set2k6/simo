@@ -6,8 +6,9 @@ angular.module('simo')
 			AuthFactory.login(auth.user.email, auth.user.password)
 				// .then((loginInfo) => auth.currentUser = loginInfo.uid)
 				// .then(() => $location.path('/'))
-				.then((loginInfo) => $location.path('/file_upload'))
+				.then((loginInfo) => $location.path('/classes'))
 		}
+
 
 	auth.oneAtATime = true;
 

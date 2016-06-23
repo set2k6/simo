@@ -1,5 +1,5 @@
-<div ng-controller="LogoutCtrl">
-	<input ng-click="logout()" type="button" value="Logout">
+<div class="logout" ng-controller="LogoutCtrl">
+	<input ng-click="logout()" type="button" class="btn btn-danger" value="Logout">
 </div>
 
 <h1>Welcome to SiMO</h1>
@@ -20,4 +20,19 @@
 			</form>
 			Hope you didn't forget your password!
 		</uib-accordion-group>
-	</uib-accordion>
+	</uib-accordion
+
+	<div ng-controller="CollapseDemoCtrl">
+	<button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Login</button>
+	<hr>
+	<div uib-collapse="isCollapsed">
+		<div class="well well-lg">
+			<form ng-submit="auth.login()">
+				<input type="email" ng-model="auth.user.email" placeholder="email">
+				<input type="password" ng-model="auth.user.password" placeholder="password">
+				<input type="submit" value="Login">
+			</form>
+			Let's Get Some Work Done Together!
+		</div>
+	</div>
+</div>

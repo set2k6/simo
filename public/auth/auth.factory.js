@@ -17,6 +17,12 @@ angular.module('simo')
 				)).then((loginResponse) => currentUser = loginResponse.uid);
 			},
 
+			register () {
+				return $timeout().then(() => (
+					firebase.auth().createUserWithEmailAndPassword(email, password)
+					)).then((loginInfo) => $location.path('/login'))
+	},
+
 			logout () {
 			 return $timeout().then(() => (
 					firebase.auth().signOut()).then(function() {
@@ -32,7 +38,7 @@ angular.module('simo')
 		}
 	})
 
-$('.navmenu').offcanvas()
+// $('.navmenu').offcanvas()
 
 
 

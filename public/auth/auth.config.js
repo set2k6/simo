@@ -21,5 +21,5 @@ angular.module('simo')
 				controllerAs: 'sg',
 				templateUrl: '/study_groups/study.html'
 			})
-			.otherwise('/')
+			.otherwise('/classes')
 	})

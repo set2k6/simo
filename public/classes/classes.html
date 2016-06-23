@@ -1,3 +1,34 @@
+    <div class="canvas">
+	<div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+      <a class="navmenu-brand" href="#/classes">Step into My Office</a>
+
+      <ul class="nav navmenu-nav">
+        <li class="disabled"><a href="#">Home</a></li>
+        <li><a href="#/chat">Chat</a></li>
+        <li class="disabled"><a href="#">Classes</a></li>
+        <li class="dropdown">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown">My Classes<b class="caret"></b></a>
+          <ul class="dropdown-menu navmenu-nav">
+            <li><a href="#/">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+      <div class="navbar navbar-default navbar-fixed-top">
+        <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      </div>
+
 <div ng-controller="LogoutCtrl">
 	<input ng-click="logout()" type="button" value="Logout">
 </div>
@@ -39,6 +70,10 @@
 
 				<div>
 					<h2>You have selected {{selectedTodo.name}}</h2>
+				</div>
+
+				<div ng-include="'file_upload/file_upload.html'">
+
 				</div>
 
 
