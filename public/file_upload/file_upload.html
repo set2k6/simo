@@ -3,13 +3,18 @@
 </div>
 
 <h1>Share Your Notes With The World</h1>
+{{user}}
 
-<div>
+<div ng-controller="FileUpCtrl as fileUp">
 	<h1>{{fileUp.heading}}</h1>
-	<form ng-submit="fileUp.submit()">
+	<form ng-submit="fileUp.submit(upload)">
 		<input type="file" accept="image/*" />
+		<input type="text" ng-model="upload.comment" />
 		<input type="submit" value="Upload Now!" />
 	</form>
 	{{fileUp.photo.url}}
-	<img ng-src="{{photo.url}}" ng-repeat="photo in fileUp.photos" />
+	<div ng-repeat="photo in fileUp.photos" >
+		<img ng-src="{{photo.url}}" /><br/>
+		<span>{{photo.comment}}</span>
+	</div>
 </div>

@@ -1,6 +1,7 @@
 angular.module('simo')
-	.controller('LoginCtrl', function (AuthFactory, $location) {
+	.controller('LoginCtrl', function (AuthFactory, $timeout, $http, $location, $scope, $uibModal) {
 		const auth = this;
+		// $scope.user = firebase.auth().currentUser.uid
 
 		auth.login = function () {
 			AuthFactory.login(auth.user.email, auth.user.password)
@@ -8,6 +9,32 @@ angular.module('simo')
 				// .then(() => $location.path('/'))
 				.then((loginInfo) => $location.path('/classes'))
 		}
+		  auth.register = function () {
+      AuthFactory.register(auth.user.email, auth.user.password)
+        .then (() => {
+					$timeout(() => {
+						AuthFactory.login(email, password)
+						.then((res) => {
+							var obj = {
+                  uid: res.uid,
+                  email: email
+                }
+                console.log("myobj", obj)
+							 $http.post("https://simo-b6ffe.firebaseio.com", obj)
+					})
+        })
+        $location.path('/login')
+		})
+ 		auth.register = function() {
+      registerMod = $uibModal.open({
+        templateUrl: "auth/register.html",
+        controller: "LoginCtrl",
+        controllerAs: "auth"
+    })
+
+		AuthFactory.curUser().then(function (user){
+
+		})
 
 
 	auth.oneAtATime = true;
@@ -34,5 +61,7 @@ angular.module('simo')
 		isCustomHeaderOpen: false,
 		isFirstOpen: true,
 		isFirstDisabled: false
-	};
-});
+	}
+}
+}
+})

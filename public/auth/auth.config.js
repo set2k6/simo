@@ -16,6 +16,11 @@ angular.module('simo')
 				controllerAs: 'classes',
 				templateUrl: '/classes/classes.html'
 			})
+			.when('/class/:className', {
+				controller: 'classInfoCtrl',
+				controllerAs: 'classInfoCtrl',
+				templateUrl: '/classes/info.html'
+			})
 			.when('/study_groups', {
 				controller: 'SGCtrl',
 				controllerAs: 'sg',

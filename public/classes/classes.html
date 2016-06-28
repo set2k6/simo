@@ -1,25 +1,31 @@
+    <!-- Nav -->
     <div class="canvas">
 	<div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
       <a class="navmenu-brand" href="#/classes">Step into My Office</a>
 
       <ul class="nav navmenu-nav">
-        <li class="disabled"><a href="#">Home</a></li>
+        <li><a href="#/classes">Home</a></li>
         <li><a href="#/chat">Chat</a></li>
-        <li class="disabled"><a href="#">Classes</a></li>
-        <li class="dropdown">
-          <a href="" class="dropdown-toggle" data-toggle="dropdown">My Classes<b class="caret"></b></a>
-          <ul class="dropdown-menu navmenu-nav">
-            <li><a href="#/">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+        <li class="disabled"><a href="#/classes">Classes</a></li>
+        <div class="btn-group" uib-dropdown keyboard-nav>
+        <button id="simple-btn-keyboard-nav" type="button" class="btn btn-default" uib-dropdown-toggle>
+            Dropdown <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+            <li role="menuitem"><a href="#">Action</a></li>
+            <li role="menuitem"><a href="#">Another action</a></li>
+            <li role="menuitem"><a href="#">Something else here</a></li>
             <li class="divider"></li>
-            <li class="dropdown-header">Nav header</li>
-            <li><a href="#">Separated link</a></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
+            <li role="menuitem"><a href="#">Separated link</a></li>
+            <li ng-repeat="classObj in classesList">
+            <a ng-href="/#/class/{{classObj.className}}">{{ classObj.className }}</a>
+            </li>
+        </ul>
+    </div>
+
       </ul>
     </div>
+
       <div class="navbar navbar-default navbar-fixed-top">
         <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
           <span class="icon-bar"></span>
@@ -29,7 +35,24 @@
       </div>
       </div>
 
-<div ng-controller="LogoutCtrl">
+<div ng-include="'file_upload/file_upload.html'">
+
+				</div>
+
+      <!-- Add Class form -->
+
+<div>
+
+<form ng-submit="classes.addClass(classObj)">
+	School: <input type="text" ng-model="classObj.schoolName" placeholder="School Name"><br>
+	Class: <input type="text" ng-model="classObj.className" placeholder="Class Name"><br>
+	Professor: <input type="text" ng-model="classObj.professor" placeholder="Professor"><br>
+ <input type="submit" value="Submit">
+</form>
+</div>
+
+
+<!-- <div ng-controller="LogoutCtrl">
 	<input ng-click="logout()" type="button" value="Logout">
 </div>
 <h1>hey youre in classes</h1>
@@ -72,9 +95,7 @@
 					<h2>You have selected {{selectedTodo.name}}</h2>
 				</div>
 
-				<div ng-include="'file_upload/file_upload.html'">
 
-				</div>
 
 
 
@@ -83,7 +104,6 @@
 						<li>{{var_name.name}} <button ng-click="removeTodo(var_name)">Delete</button></li>
 					</ul>
 				</div>
-			</div>
-
+			</div> -->
 
 

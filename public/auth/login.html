@@ -2,11 +2,13 @@
 	<input ng-click="logout()" type="button" class="btn btn-danger" value="Logout">
 </div>
 
-<h1>Welcome to SiMO</h1>
 
+
+<h1>Welcome to SiMO</h1>
+<!-- {{user}} -->
 <!-- <div ng-include="'/file_upload/file_upload.html'"> -->
 
-</div>
+<!-- </div> -->
 
 	<uib-accordion class="accordion" close-others="oneAtATime">
 		<uib-accordion-group is-open="status.open">
@@ -20,9 +22,13 @@
 			</form>
 			Hope you didn't forget your password!
 		</uib-accordion-group>
-	</uib-accordion
+	</uib-accordion>
 
-	<div ng-controller="CollapseDemoCtrl">
+<div class="register" ng-controller="LoginCtrl">
+<input ng-click="register()" type="button" class="btn btn-warning" value="Register">
+</div>
+
+	<!-- <div ng-controller="CollapseDemoCtrl">
 	<button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Login</button>
 	<hr>
 	<div uib-collapse="isCollapsed">
@@ -34,5 +40,5 @@
 			</form>
 			Let's Get Some Work Done Together!
 		</div>
-	</div>
+	</div> -->
 </div>

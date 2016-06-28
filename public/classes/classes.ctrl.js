@@ -1,10 +1,13 @@
 angular.module('simo')
  .controller('AddClassCtrl', function ($scope, $location) {
- 	const classes = this
+ 	const classes = this;
+  $scope.classesList = [];
 
-		classes.addClass = function () {
+		classes.addClass = function (classObj) {
+      $scope.classesList.push(classObj);
+      /*
 			AuthFactory.addClass()
-				.then(() => $location.path('/classes'))
+				.then(() => $location.path('/classes'))*/
 		}
 	})
 

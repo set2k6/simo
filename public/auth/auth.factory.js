@@ -7,7 +7,7 @@ angular.module('simo')
 	// 		}
 	// 	};
 	// })
-	.factory('AuthFactory', ($timeout) => {
+	.factory('AuthFactory', ($timeout, $http) => {
 		let currentUser = null;
 
 		return {
@@ -17,11 +17,25 @@ angular.module('simo')
 				)).then((loginResponse) => currentUser = loginResponse.uid);
 			},
 
-			register () {
+			register (email, password) {
 				return $timeout().then(() => (
 					firebase.auth().createUserWithEmailAndPassword(email, password)
 					)).then((loginInfo) => $location.path('/login'))
-	},
+			},
+
+			curUser () {
+				const user = firebase.auth().currentUser
+				return $timeout().then (() => {
+				if (user) {
+    			// User is signed in.
+    			 return user
+    			 $scope.user = curUser.user.uid
+  				} else {
+   			 // No user is signed in.
+   			 return null
+  				}
+			})
+		},
 
 			logout () {
 			 return $timeout().then(() => (
