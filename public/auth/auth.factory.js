@@ -20,16 +20,15 @@ angular.module('simo')
 			register (email, password) {
 				return $timeout().then(() => (
 					firebase.auth().createUserWithEmailAndPassword(email, password)
-					)).then((loginInfo) => $location.path('/login'))
+					)).then((loginInfo) => $location.path('/classes'))
 			},
 
 			curUser () {
-				const user = firebase.auth().currentUser
 				return $timeout().then (() => {
+				const user = firebase.auth().currentUser
 				if (user) {
     			// User is signed in.
     			 return user
-    			 $scope.user = curUser.user.uid
   				} else {
    			 // No user is signed in.
    			 return null

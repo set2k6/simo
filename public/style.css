@@ -1,5 +1,27 @@
 h1 {
 	color: lightskyblue;
+	text-align: center;
+}
+
+.loginpage {
+	margin-top: 80px;
+}
+
+.user {
+	float: right;
+}
+
+#bodyy {
+	background-color: tan;
+}
+
+.register {
+	text-align: center;
+}
+
+.panel {
+	margin: 0 auto;
+	padding: 0 auto;
 }
 
 .logout {

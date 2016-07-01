@@ -1,63 +1,46 @@
 angular.module('simo')
- .controller('AddClassCtrl', function ($scope, $location) {
+ .controller('AddClassCtrl', function ($scope, $location, $timeout, AuthFactory) {
  	const classes = this;
   $scope.classesList = [];
 
+  $scope.user = null;
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+       $scope.user = user.email;
+        console.log("working user",user)
+      } else {
+        console.log("no user");
+      }
+    })
+
 		classes.addClass = function (classObj) {
-      $scope.classesList.push(classObj);
+        firebase.database().ref('classArr').push(classObj);
       /*
 			AuthFactory.addClass()
 				.then(() => $location.path('/classes'))*/
 		}
-	})
 
-.controller("TodoCtrl", ($scope, $http) => {
-
-  $scope.title = 'Angular Todo - PFM!';
-  $scope.filter2 = '';
-  $scope.potato = '';
-  $scope.variableName = '';
-
-  $scope.newTodo = '';
-  $scope.taskType = 'home';
-
-  $scope.selectedTodo = 'nothing';
-
-  $scope.tasks = [
-    { name: "Make the bed", type: "home"},
-    { name: "Eat breakfast", type: "home"},
-    { name: "Check the network", type: "work"},
-    { name: "Start up Slack", type: "work"},
-    { name: "Feed the cats", type: "home"}
-  ];
-
-  $http({
-    method: 'GET',
-    url: '/data/tasks.json'
-  }).then((response) => {
-    $scope.tasks = response.data.tasks;
+  firebase.database().ref('classArr').on('child_added', function (snapshot) {
+    $scope.classesList.push(snapshot.val())
+    $timeout()
   })
 
-  $http.get('/data/tasks.json')
-    .then((response) => {
-      $scope.tasks = response.data.tasks;
-    })
+$scope.addClassesList = function() {
+    if ($scope.newClass != "") {
 
-  $http.post('/data/tasks.json', {data: "what I'm sending"})
-    .then((response) => {
-      console.log("response", response);
-      $scope.tasks = response.data.tasks;
-  })
+      $scope.newClass,
 
-  $scope.addTodo = () => {
-    $scope.tasks.push({ name: $scope.newTodo, type: $scope.taskType});
-    $scope.newTodo = '';
-  }
 
-  $scope.removeTodo = (task) => {
-    const taskIndex = $scope.tasks.indexOf(task);
-    if (taskIndex >= 0) { // eslint-disable-line no-magic-numbers
-      $scope.tasks.splice(taskIndex, 1); // eslint-disable-line no-magic-numbers
+      // $scope.classesList.push(classesList);
+      $http.post("https://simo-b6ffe.firebaseio.com/classesList.json", classesList)
+      $scope.newClass = "";
     }
-  }
+    else {
+    }
+
+
+	}
 })
+
+

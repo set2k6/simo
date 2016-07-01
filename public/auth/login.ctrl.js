@@ -1,7 +1,7 @@
 angular.module('simo')
-	.controller('LoginCtrl', function (AuthFactory, $timeout, $http, $location, $scope, $uibModal) {
+	.controller('LoginCtrl', function (AuthFactory, $timeout, $http, $location, $scope, $uibModal){
 		const auth = this;
-		// $scope.user = firebase.auth().currentUser.uid
+
 
 		auth.login = function () {
 			AuthFactory.login(auth.user.email, auth.user.password)
@@ -9,23 +9,29 @@ angular.module('simo')
 				// .then(() => $location.path('/'))
 				.then((loginInfo) => $location.path('/classes'))
 		}
-		  auth.register = function () {
-      AuthFactory.register(auth.user.email, auth.user.password)
+		auth.register = function () {
+    	AuthFactory.register(auth.user.email, auth.user.password)
         .then (() => {
 					$timeout(() => {
 						AuthFactory.login(email, password)
 						.then((res) => {
 							var obj = {
-                  uid: res.uid,
-                  email: email
-                }
-                console.log("myobj", obj)
-							 $http.post("https://simo-b6ffe.firebaseio.com", obj)
-					})
-        })
-        $location.path('/login')
-		})
- 		auth.register = function() {
+                uid: res.uid,
+                email: email
+             }
+						$http.post("https://simo-b6ffe.firebaseio.com", obj)
+						})
+        	})
+        	.then((res) => {
+        		$timeout(() => {
+        			auth.login()
+        		})
+      $location.path('/classes')
+    })
+			})
+    }
+ 		auth.openReg = function() {
+ 			console.log('working');
       registerMod = $uibModal.open({
         templateUrl: "auth/register.html",
         controller: "LoginCtrl",
@@ -33,12 +39,10 @@ angular.module('simo')
     })
 
 		AuthFactory.curUser().then(function (user){
-
 		})
-
+	}
 
 	auth.oneAtATime = true;
-
 	auth.groups = [
 		{
 			title: 'Dynamic Group Header - 1',
@@ -62,6 +66,6 @@ angular.module('simo')
 		isFirstOpen: true,
 		isFirstDisabled: false
 	}
-}
-}
 })
+
+

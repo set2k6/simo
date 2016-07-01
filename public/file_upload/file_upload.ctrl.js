@@ -13,11 +13,11 @@ angular.module("simo")
 					console.log(data.getMetadata);
 					console.log(fileUp.photos);
 
-					fileUp.photos.forEach(function(photo) {
-							photo.getMetadata().then(function(data) {
-								photo.comment = data.comment;
-							});
-					});
+					// fileUp.photos.forEach(function(photo) {
+					// 		photo.getMetadata().then(function(data) {
+					// 			photo.comment = data.comment;
+					// 		});
+					// });
 				})
 		))
 

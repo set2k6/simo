@@ -1,13 +1,14 @@
-
+<div class="backg">
+<!-- logout button -->
 <div class="logout" ng-controller="LogoutCtrl">
-	<input ng-click="logout()" type="button" value="Logout">
+	<input ng-click="logout()" type="button" class="btn btn-danger" value="Logout">
 </div>
 
 
 <!-- navbar -->
-    <div class="canvas">
+<div class="canvas">
 	<div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
-      <a class="navmenu-brand" href="#/classes">Step into My Office</a>
+    <a class="navmenu-brand" href="#/classes">Step into My Office</a>
 
       <ul class="nav navmenu-nav">
         <li><a href="#/classes">Home</a></li>
@@ -15,7 +16,7 @@
         <li><a href="#/classes">Classes</a></li>
         <div class="btn-group" uib-dropdown keyboard-nav>
         <button id="simple-btn-keyboard-nav" type="button" class="btn btn-default" uib-dropdown-toggle>
-            Dropdown with keyboard navigation <span class="caret"></span>
+            classes <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
             <li role="menuitem"><a href="#">Action</a></li>
@@ -109,4 +110,6 @@
       <div class="col-md-10"></div>
     </div> <!-- row ends -->
   </div>
+</div>
+</div>
 

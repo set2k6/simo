@@ -6,12 +6,17 @@ angular.module('simo')
 				controllerAs: 'auth',
 				templateUrl: '/auth/login.html'
 			})
+				.when('/register', {
+					controller:'LoginCtrl',
+					controllerAs:'auth',
+					templateUrl:'/auth/register.html'
+					})
 				.when('/chat', {
 				controller: 'ChatCtrl',
 				controllerAs: 'chat',
 				templateUrl: '/chat/chat.html'
 			})
-					.when('/classes', {
+				.when('/classes', {
 				controller: 'AddClassCtrl',
 				controllerAs: 'classes',
 				templateUrl: '/classes/classes.html'

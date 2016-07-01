@@ -1,3 +1,5 @@
+<div class="backg">
+
 <div class="logout" ng-controller="LogoutCtrl">
 	<input ng-click="logout()" type="button" class="btn btn-danger" value="Logout">
 </div>
@@ -24,8 +26,8 @@
 		</uib-accordion-group>
 	</uib-accordion>
 
-<div class="register" ng-controller="LoginCtrl">
-<input ng-click="register()" type="button" class="btn btn-warning" value="Register">
+<div class="register">
+	<input ng-click="auth.openReg()" type="button" class="btn btn-warning" value="Register">
 </div>
 
 	<!-- <div ng-controller="CollapseDemoCtrl">
@@ -42,3 +44,4 @@
 		</div>
 	</div> -->
 </div>
+
