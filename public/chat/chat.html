@@ -1,8 +1,6 @@
 <div class="backg2">
-<!-- logout button -->
-<div class="logout" ng-controller="LogoutCtrl">
-	<input ng-click="logout()" type="button" class="btn btn-danger" value="Logout">
-</div>
+
+
 
 
 <!-- navbar -->
@@ -37,6 +35,19 @@
         </button>
       </div>
       </div>
+
+      <div id="logo2">
+
+  <a href="#/classes"><img src="/images/student.png"></a><h4 id="logotitle">SiMO</h4>
+
+  <div class="user">
+  {{user}}
+  </div>
+
+  <div id="logoutCl" ng-controller="LogoutCtrl">
+  <input ng-click="logout()" type="button" class="btn btn-danger" value="Logout">
+  </div>
+</div>
 
 <h1>Chat</h1>
 
