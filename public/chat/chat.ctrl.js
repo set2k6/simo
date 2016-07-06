@@ -1,33 +1,57 @@
 angular.module('simo')
- .controller('Chat', ['$scope','Message','firebase', function($scope, Message){
+	.controller('DropdownCtrl', function ($scope, $log) {
+  $scope.items = [
+    'The first choice!',
+    'And another choice for you.',
+    'but wait! A third!'
+  ];
 
-			$scope.user = "Guest";
+  $scope.status = {
+    isopen: false
+  };
 
-			$scope.messages = Message.all;
+  $scope.toggled = function(open) {
+    $log.log('Dropdown is now: ', open);
+  };
 
-			$scope.newMessage = function(message){
-				Message.create(message);
-			};
-	}])
+  $scope.toggleDropdown = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.status.isopen = !$scope.status.isopen;
+  };
 
-	.factory('Message',() => {
-		const messages = $firebase(ref.child('messages')).$asArray();
+  $scope.appendToEl = angular.element(document.querySelector('#dropdown-long-content'));
+});
+//  .controller('ChatCtrl', ['Message', function(Message){
+//  		const chat = this
+// 			chat.user = "Guest";
 
-		const Message = {
-			all: messages,
-			create: function (message) {
-				return messages.add(message);
-			},
+// 			chat.messages = Message.all;
 
-			get: function (messageId) {
-				return firebase.database().ref('messages').child(messageId).asObject();
-			},
+// 			chat.messageIn = function(message){
+// 				Message.create(message);
+// 			};
+// 	}])
 
-			delete: function (message) {
-				return messages.$remove(message);
-			}
-		};
+// 	.factory('Message',() => {
+// 		// const messages = firebase.database().ref('/').child('messages').$asArray();
+// 		const messages = null
 
-		return Message;
+// 		const Message = {
+// 			all: messages,
+// 			create: function (message) {
+// 				return messages.add(message);
+// 			},
 
-	})
+// 			get: function (messageId) {
+// 				return firebase.database().ref('messages').child(messageId).asObject();
+// 			},
+
+// 			delete: function (message) {
+// 				return messages.$remove(message);
+// 			}
+// 		};
+
+// 		return Message;
+
+// 	})

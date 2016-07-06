@@ -1,0 +1,26 @@
+<!-- <div class="modal-dialog" role="document"> -->
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="exampleModalLabel">Register for SiMO</h4>
+		</div>
+	<div class="modal-body">
+		<div class="register-form">
+      <h2>Enter Details for registration!</h2>
+      <p>Already have an account? Sign in <a href="#/">here</a>.</p>
+      <form ng-submit="auth.register(auth.user.email, auth.user.password)">
+        <div class="form-group">
+          <label for="user_email">Email</label>
+          <input type="email" id="user_email" ng-model="auth.user.email" class="form-control" placeholder="person@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="user_password">Password</label>
+           	<input type="password" id="user_password" ng-model="auth.user.password" class="form-control" />
+        </div>
+          <button class="btn btn-success">Create account</button>
+      </form>
+    </div>
+  </div>
+  </div>
+<!-- </div> -->
+

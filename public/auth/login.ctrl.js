@@ -1,17 +1,49 @@
 angular.module('simo')
-	.controller('LoginCtrl', function (AuthFactory, InitializeFirebaseFactory, $location, $scope) {
+	.controller('LoginCtrl', function (AuthFactory, $timeout, $http, $location, $scope, $uibModal){
 		const auth = this;
+
 
 		auth.login = function () {
 			AuthFactory.login(auth.user.email, auth.user.password)
 				// .then((loginInfo) => auth.currentUser = loginInfo.uid)
 				// .then(() => $location.path('/'))
-				.then((loginInfo) => $location.path('/classes/classes.html'))
+				.then((loginInfo) => $location.path('/classes'))
 		}
+		auth.register = function () {
+    	AuthFactory.register(auth.user.email, auth.user.password)
+        .then (() => {
+					$timeout(() => {
+						AuthFactory.login(email, password)
+						.then((res) => {
+							var obj = {
+                uid: res.uid,
+                email: email
+             }
+						$http.post("https://simo-b6ffe.firebaseio.com", obj)
+						})
+        	})
+        	.then((res) => {
+        		$timeout(() => {
+        			auth.login()
+        		})
+      $location.path('/classes')
+    })
+			})
+    }
+ 		auth.openReg = function() {
+ 			console.log('working');
+      registerMod = $uibModal.open({
+        templateUrl: "auth/register.html",
+        controller: "LoginCtrl",
+        controllerAs: "auth"
+    })
 
-	$scope.oneAtATime = true;
+		AuthFactory.curUser().then(function (user){
+		})
+	}
 
-	$scope.groups = [
+	auth.oneAtATime = true;
+	auth.groups = [
 		{
 			title: 'Dynamic Group Header - 1',
 			content: 'Dynamic Group Body - 1'
@@ -22,16 +54,20 @@ angular.module('simo')
 		}
 	];
 
-	$scope.items = ['Item 1', 'Item 2', 'Item 3'];
+	auth.items = ['Item 1', 'Item 2', 'Item 3'];
 
-	$scope.addItem = function() {
-		var newItemNo = $scope.items.length + 1;
-		$scope.items.push('Item ' + newItemNo);
+	auth.addItem = function() {
+		var newItemNo = auth.items.length + 1;
+		auth.items.push('Item ' + newItemNo);
 	};
 
-	$scope.status = {
+	auth.status = {
 		isCustomHeaderOpen: false,
 		isFirstOpen: true,
 		isFirstDisabled: false
 	};
-});
+	 $scope.isCollapsed = true;
+
+})
+
+

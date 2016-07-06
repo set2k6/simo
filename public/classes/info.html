@@ -1,12 +1,10 @@
-<!-- Nav -->
-
 	<div class="canvas">
 		<div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
 	    <a class="navmenu-brand" href="#/classes">Step into My Office</a>
 				<ul class="nav navmenu-nav">
 	        <li><a href="#/classes">Home</a></li>
 	        <li><a href="#/chat">Chat</a></li>
-	        <li class="disabled"><a href="#/classes">Add Class</a></li>
+	        <li class="disabled"><a href="#/classes">Classes</a></li>
 	  	<div class="btn-group" uib-dropdown keyboard-nav>
 	    	<button id="simple-btn-keyboard-nav" type="button" class="btn btn-default" uib-dropdown-toggle>
 	       Classes <span class="caret"></span>
@@ -43,20 +41,7 @@
 	<input ng-click="logout()" type="button" class="btn btn-danger" value="Logout">
 	</div>
 </div>
-
-
-
-
-	<!-- Add Class form -->
-	<div class="addClassForm">
-		<h3>Enter Class Information</h3>
-		<form id="classForm" ng-model="newClass" ng-submit="classes.addClass(classObj)">
-			<label class="formInput">School: <input class="formInput2" type="text" ng-model="classObj.schoolName" placeholder="Name of School"></label>
-			<label class="formInput">Class: <input class="formInput2" type="text" ng-model="classObj.className" placeholder="Name of Class"></label>
-			<label class="formInput">Professor: <input class="formInput2" type="text" ng-model="classObj.professor" placeholder="Name of Professor"></label>
-	 		<div id="addClBtn"><input type="submit" value="Submit" class="btn btn-success" ng-click="addClassesList"></div>
-		</form>
-	</div><!-- end of class form -->
-		<!-- File upload -->
-		<!-- <div ng-include="'file_upload/file_upload.html'">
-		</div> -->
+<h1> {{className}} </h1>
+<p> {{schoolName}} </p>
+	<div ng-include="'file_upload/file_upload.html'">
+		</div>

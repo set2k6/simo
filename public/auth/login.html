@@ -1,7 +1,23 @@
+<div class="backg" ng-controller="LoginCtrl">
 
-<h1>Welcome to SiMO</h1>
+<div class="logout" ng-controller="LogoutCtrl">
+	<input ng-click="logout()" type="button" class="btn btn-danger" value="Logout">
+</div>
 
-	<uib-accordion class="accordion" close-others="oneAtATime">
+
+<!-- <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+<div id="logo">
+	<a href="#/classes"><img src="/images/student.png"></a><h4 id="logotitle">SiMO</h4>
+</div>
+
+<img src="/images/bobst2.jpg" class="bg">
+<h1 id="loginBanner"> <img src="/images/computerguy.png" style="width:85px;height:85px;"> Students Helping Students</h1>
+<!-- {{user}} -->
+<!-- <div ng-include="'/file_upload/file_upload.html'"> -->
+
+<!-- </div> -->
+
+<!-- 	<uib-accordion class="accordion" close-others="oneAtATime">
 		<uib-accordion-group is-open="status.open">
 			<uib-accordion-heading>
 			Click to login! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
@@ -13,4 +29,43 @@
 			</form>
 			Hope you didn't forget your password!
 		</uib-accordion-group>
-	</uib-accordion>
+	</uib-accordion> -->
+
+<div id="loginCollapse">
+	<div id="login" ng-controller="LoginCtrl">
+	<button id="loginCB" type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Click to Login</button>
+	<hr>
+	<div uib-collapse="isCollapsed">
+		<div class="well well-lg">
+			<form ng-submit="auth.login()">
+				<input type="email" ng-model="auth.user.email" placeholder="email">
+				<input type="password" ng-model="auth.user.password" placeholder="password">
+				<input type="submit" class="btn btn-success" value="Login">
+			</form>
+			Let's Get Some Work Done Together!
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="register">
+	<input ng-click="auth.openReg()" type="button" class="btn btn-warning" value="Register">
+</div>
+
+<div class="loginAbout">
+	<article class="loginAboutM">
+		<p>Step into My Office Makes it easy to <span class="hlite">share notes</span></p><p>and <span class="hlite">homework</span> with other students!</p>
+	</article>
+	<article>
+		<h4 class="loginAboutW">Step into My Office, is the note and exams sharing web app for high school and college students. Login or Register and join your school and class to begin sharing your past notes, exams, quizzes or homework assignments! You can also chat with other students. Learning is easier when we learn together!</h4>
+	</article>
+</div>
+
+<footer>
+<p>designed and developed by &copy; <strong>John Green</strong></p>
+</footer>
+
+
+</div>
+
+
