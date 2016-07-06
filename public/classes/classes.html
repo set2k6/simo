@@ -1,26 +1,19 @@
 <!-- Nav -->
-<div id="bodyy">
+
 	<div class="canvas">
 		<div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
 	    <a class="navmenu-brand" href="#/classes">Step into My Office</a>
 				<ul class="nav navmenu-nav">
 	        <li><a href="#/classes">Home</a></li>
 	        <li><a href="#/chat">Chat</a></li>
-	        <li class="disabled"><a href="#/classes">Classes</a></li>
+	        <li class="disabled"><a href="#/classes">Add Class</a></li>
 	  	<div class="btn-group" uib-dropdown keyboard-nav>
 	    	<button id="simple-btn-keyboard-nav" type="button" class="btn btn-default" uib-dropdown-toggle>
-	       Classes
+	       Classes <span class="caret"></span>
 	      </button>
-	      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	    <span class="caret"></span>
-	    <span class="sr-only">Toggle Dropdown</span>
-	  </button>
+
 	        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
-	          <li role="menuitem"><a href="#">Action</a></li>
-	          <li role="menuitem"><a href="#">Another action</a></li>
-	          <li role="menuitem"><a href="#">Something else here</a></li>
-	          <li class="divider"></li>
-	          <li role="menuitem"><a href="#">Separated link</a></li>
+
 	          <li ng-repeat="classObj in classesList">
 	          	<a ng-href="/#/class/{{classObj.className}}">{{ classObj.className }}</a>
 	          </li>
@@ -38,22 +31,32 @@
 	  </div>
 	</div> <!-- end of Nav -->
 
+<div id="logo2">
+
+	<a href="#/classes"><img src="/images/student.png"></a><h4 id="logotitle">SiMO</h4>
+
 	<div class="user">
 	{{user}}
 	</div>
 
-		<!-- File upload -->
-		<div ng-include="'file_upload/file_upload.html'">
-		</div>
-
-	      <!-- Add Class form -->
-
-	<div>
-		<form ng-model="newClass" ng-submit="classes.addClass(classObj)">
-		School: <input type="text" ng-model="classObj.schoolName" placeholder="School Name"><br>
-		Class: <input type="text" ng-model="classObj.className" placeholder="Class Name"><br>
-		Professor: <input type="text" ng-model="classObj.professor" placeholder="Professor"><br>
-	 <input type="submit" value="Submit" ng-click="addClassesList">
-		</form>
+	<div id="logoutCl" ng-controller="LogoutCtrl">
+	<input ng-click="logout()" type="button" class="btn btn-danger" value="Logout">
 	</div>
 </div>
+
+
+
+
+	<!-- Add Class form -->
+	<div class="addClassForm">
+		<h3>Enter Class Information</h3>
+		<form id="classForm" ng-model="newClass" ng-submit="classes.addClass(classObj)">
+			<label class="formInput">School: <input class="formInput2" type="text" ng-model="classObj.schoolName" placeholder="Name of School"></label>
+			<label class="formInput">Class: <input class="formInput2" type="text" ng-model="classObj.className" placeholder="Name of Class"></label>
+			<label class="formInput">Professor: <input class="formInput2" type="text" ng-model="classObj.professor" placeholder="Name of Professor"></label>
+	 		<div id="addClBtn"><input type="submit" value="Submit" class="btn btn-success" ng-click="addClassesList"></div>
+		</form>
+	</div><!-- end of class form -->
+		<!-- File upload -->
+		<!-- <div ng-include="'file_upload/file_upload.html'">
+		</div> -->

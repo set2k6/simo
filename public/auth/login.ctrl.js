@@ -65,7 +65,9 @@ angular.module('simo')
 		isCustomHeaderOpen: false,
 		isFirstOpen: true,
 		isFirstDisabled: false
-	}
+	};
+	 $scope.isCollapsed = true;
+
 })
 
 

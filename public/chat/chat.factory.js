@@ -25,7 +25,7 @@ angular.module('simo')
 	$scope.addChat = function() {
 		if ($scope.newChatMsg != "") {
 			const chat = $scope.formatChat("icon will go here",
-			"John",
+			"Guest",
 			$scope.newChatMsg,
 			new Date());
 

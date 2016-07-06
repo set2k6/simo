@@ -2,7 +2,7 @@ angular.module("simo")
 .controller("FileUpCtrl", function ($timeout, fileUpFactory) {
 		const fileUp = this
 
-		fileUp.heading = "Upload your notes!"
+		fileUp.heading = "Share Your Class Notes"
 		// fileUp.photoURLs = []
 
 		firebase.database().ref('/images').on('value', snap => (
