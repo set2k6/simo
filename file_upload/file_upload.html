@@ -1,12 +1,17 @@
-<h1>File Upload</h1>
 
-
-	<div ng-controller="FileUpCtrl as fileUp">
-		<h1>{{fileUp.heading}}</h1>
-		<form ng-submit="fileUp.submit()">
-			<input type="file" accept="image/*" />
-			<input type="submit" value="Upload Now!" />
-		</form>
-		<img ng-src="{{photo.url}}" ng-repeat="photo in fileUp.photos" />
+<div ng-controller="FileUpCtrl as fileUp">
+	<h3>{{fileUp.heading}}</h3>
+	<form id="upForm" ng-submit="fileUp.submit(upload)">
+		<input id="stubborn" type="file" accept="image/*" />
+		<input type="text" ng-model="upload.comment" placeholder="comment" />
+		<input type="submit" class="btn btn-success" value="Upload Now!" />
+	</form>
+	<div class="uploadDiv">
+	{{fileUp.photo.url}}
 	</div>
+	<div id="upCont" ng-repeat="photo in fileUp.photos" >
+		<img id="upImg" ng-src="{{photo.url}}" /><br/>
+		<span id="upComm">{{upload.comment}}</span>
+	</div>
+
 

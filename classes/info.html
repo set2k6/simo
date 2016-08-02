@@ -1,0 +1,47 @@
+	<div class="canvas">
+		<div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+	    <a class="navmenu-brand" href="#/classes">Step into My Office</a>
+				<ul class="nav navmenu-nav">
+	        <li><a href="#/classes">Home</a></li>
+	        <li><a href="#/chat">Chat</a></li>
+	        <li class="disabled"><a href="#/classes">Classes</a></li>
+	  	<div class="btn-group" uib-dropdown keyboard-nav>
+	    	<button id="simple-btn-keyboard-nav" type="button" class="btn btn-default" uib-dropdown-toggle>
+	       Classes <span class="caret"></span>
+	      </button>
+
+	        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+
+	          <li ng-repeat="classObj in classesList">
+	          	<a ng-href="/#/class/{{classObj.className}}">{{ classObj.className }}</a>
+	          </li>
+	        </ul>
+	    </div>
+				</ul>
+	  </div>
+
+	  <div class="navbar navbar-default navbar-fixed-top">
+	    <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </button>
+	  </div>
+	</div> <!-- end of Nav -->
+
+<div id="logo2">
+
+	<a href="#/classes"><img src="/images/student.png"></a><h4 id="logotitle">SiMO</h4>
+
+	<div class="user">
+	{{user}}
+	</div>
+
+	<div id="logoutCl" ng-controller="LogoutCtrl">
+	<input ng-click="logout()" type="button" class="btn btn-danger" value="Logout">
+	</div>
+</div>
+<h1> {{className}} </h1>
+<p> {{schoolName}} </p>
+	<div ng-include="'file_upload/file_upload.html'">
+		</div>

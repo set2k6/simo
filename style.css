@@ -1,3 +1,285 @@
-h1 {
-	color: lightskyblue;
+/*******main css**********/
+.logout {
+	float: right;
 }
+
+h1 {
+	color: #F1BF98;
+	text-shadow: 2px 2px #6b818c;
+	text-align: center;
+	font-family: 'Cuprum', sans-serif;
+}
+
+body {
+	background-color: #08415C;
+	height: 700px;
+}
+
+/*********sign-in page*******/
+.loginpage {
+	margin-top: 80px;
+	margin-left: 40px;
+}
+
+.hlite {
+	color: #F1BF98;
+}
+
+.bg {
+	 /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+@media screen and (max-width: 1024px) {Specific to this particular image
+ .bg {
+    left: 50%;
+    margin-left: -512px; 50%
+  }
+}
+
+#logo {
+	float: left;
+	text-align: left;
+	display: inline;
+	z-index: 9999;
+}
+
+#logotitle {
+	font-family: 'Cuprum', sans-serif;
+	display: inline;
+	padding-left: 4px;
+	color: #F1BF98;
+}
+
+#loginBanner {
+	padding-top: 4%;
+	margin-bottom: 3%;
+	font-family: 'Cuprum', sans-serif;
+}
+
+.loginAbout {
+	/*border: inset 3px;*/
+	border-color: #EEE5E9;
+}
+.loginAboutM {
+	font-family: 'Cuprum', sans-serif;
+	color: #EEE5E9;
+	text-align: center;
+	font-size: 3.0em;
+	margin-top: 6%;
+}
+
+.loginAboutW {
+	font-family: 'Cuprum', sans-serif;
+	color: #EEE5E9;
+	margin-top: 2%;
+	margin-left: 26%;
+	text-align: center;
+	width: 50%;
+	font-style: oblique;
+}
+
+#loginCollapse {
+	/*align-self: center;*/
+}
+
+#loginCB {
+	text-align: center;
+	margin-left: 37%;
+}
+
+#login {
+	width: 25%;
+	/*text-align: center;*/
+	margin: 0 auto;
+}
+
+.register {
+	text-align: center;
+}
+
+.backg {
+	padding: 1% 1% 1% 1%;
+	height: 700px;
+	background-size: 100% 100%;
+	/*background-color: #08415C;*/
+/*	background-color: #fff;
+background-image:
+linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+linear-gradient(#eee .1em, transparent .1em);
+background-size: 100% 1.2em*/
+}
+
+footer {
+	font-family: 'Cuprum', sans-serif;
+	margin-top: 15%;
+	float: right;
+	color: #F1BF98;
+}
+
+
+/*********classes views*********/
+#logo2 {
+	text-align: center;
+	margin-top: 2%;
+	padding-left: 47%;
+	/*display: inline;*/
+}
+
+/*#logo2a {
+	padding-right: 5%;
+}*/
+
+#logoutCl {
+	float: right;
+	margin-right: 2%;
+}
+
+.user {
+	padding-left: 65%;
+	text-align: right;
+	display: inline;
+	color: #EEE5E9;
+}
+
+h3 {
+	text-align: center;
+	color: #F1BF98;
+	font-family: 'Cuprum', sans-serif;
+}
+
+.addClassForm {
+		margin-top: 5%;
+	}
+
+#classForm {
+	text-align: center;
+	border: solid #EEE5E9;
+	background-color: #6b818c;
+	width: 450px;
+	height: 225px;
+	margin: auto;
+	padding-top: 30px;
+	display: block;
+	/*line-height: 200%;*/
+}
+
+.formInput {
+	width: px;
+	height: 35px;
+}
+
+.formInput2 {
+	width: 300px;
+	height: 20px;
+	text-align: center;
+}
+
+#adClBtn {
+	padding-top: 2%;
+	margin-top: 2%;
+	text-align: center;
+} /*end classes view*/
+
+
+/******upload view*****/
+#upCont {
+	text-align: justify;
+	/*margin-left: 40%;*/
+}
+
+ #upImg {
+	display: inline-block;
+	margin-top: 5%;
+	margin-left: 40%;
+	width: 320px;
+	height: 200px;
+}
+
+#upForm {
+	border: solid #EEE5E9;
+	background-color: #6b818c;
+	text-align: center;
+	margin-left: 40%;
+	margin-top: 5%;
+	width: 375px;
+	height: 175px;
+	padding-top: 3%;
+	padding-left: 1%;
+}
+
+#upComm {
+	color: #F1BF98;
+}
+
+#stubborn {
+	padding-left: 12%;
+}
+
+
+html, body {
+	height: 100%;
+}
+
+/*********navbar**********/
+.navbar-toggle {
+	float: left;
+	margin-left: 15px;
+}
+
+.navmenu {
+	z-index: 1;
+}
+
+.canvas {
+	position: relative;
+	left: 0;
+	z-index: 2;
+	min-height: 100%;
+	padding: 50px 0 0 0;
+	background: #fff;
+}
+
+@media (min-width: 0) {
+	.navbar-toggle {
+		display: block; /* force showing the toggle */
+	}
+}
+
+@media (min-width: 992px) {
+	body {
+		padding: 0;
+	}
+	.navbar {
+		right: auto;
+		background: none;
+		border: none;
+	}
+	.canvas {
+		padding: 0;
+	}
+}/*end Nav*/
+
+/*Chat*/
+.backg2 {
+/*	position: relative;
+	padding-top: 2%;
+	height: 800px;
+	background-size: 100% 100%;
+	background-color: #08415C;*/
+}
+
+
+

@@ -1,2 +1,2 @@
-angular.module("simo", ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
+angular.module('simo', ['ngRoute', 'ui.bootstrap', 'ngAnimate'])
 

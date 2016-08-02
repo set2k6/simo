@@ -1,4 +1,4 @@
-angular.module("simo", [])
+angular.module('simo')
 	.config(() => (
 		firebase.initializeApp({
 		apiKey: "AIzaSyCcqIfV5WqHbjdLBwYENErYX9bwb0DXomA",
