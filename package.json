@@ -4,7 +4,8 @@
   "description": "The notes sharing app for college",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d public"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "http-server": "^0.9.0"
   },
   "devDependencies": {
+    "gh-pages": "^0.11.0",
     "gulp-connect": "^4.1.0"
   }
 }
