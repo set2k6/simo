@@ -10,7 +10,7 @@ class ClassService {
     }
 
 	addClass(classObj) {
-		firebase.database().ref('classArr').push(classObj);
+		return firebase.database().ref('classArr').push(classObj);
 	} 
 
 	getClassByRouteParams(routeParams) {

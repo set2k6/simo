@@ -50,8 +50,10 @@
 
 
 	<!-- Add Class form -->
-	<div class="addClassForm">
+	<div class="addClassForm" ng-keyup="closeAlert()">
 		<h3>Enter Class Information</h3>
+		<div uib-alert ng-if="alert" type="{{alert.type}}" close="closeAlert()">{{alert.message}}</div>
+
 		<form id="classForm" ng-model="newClass" ng-submit="classes.addClass(classObj)">
 			<label class="formInput">School: <input class="formInput2" type="text" ng-model="classObj.schoolName" placeholder="Name of School"></label>
 			<label class="formInput">Class: <input class="formInput2" type="text" ng-model="classObj.className" placeholder="Name of Class"></label>
