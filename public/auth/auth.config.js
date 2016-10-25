@@ -21,7 +21,7 @@ angular.module('simo')
 				controllerAs: 'classes',
 				templateUrl: '/classes/classes.html'
 			})
-			.when('/class/:className', {
+			.when('/class/:schoolName/:professor/:className', {
 				controller: 'classInfoCtrl',
 				controllerAs: 'classInfoCtrl',
 				templateUrl: '/classes/info.html'

@@ -15,7 +15,9 @@
 	        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="simple-btn-keyboard-nav">
 
 	          <li ng-repeat="classObj in classesList">
-	          	<a ng-href="/#/class/{{classObj.className}}">{{ classObj.className }}</a>
+	          	<a ng-href="/#/class/{{classObj.schoolName}}/{{classObj.professor}}/{{classObj.className}}">{{ classObj.schoolName }}-{{ classObj.professor }}-{{ classObj.className }}</a>
+	        <!--   	<a ng-href="/#/class/{{classObj.schoolName}}">{{ classObj.schoolName }}</a>
+	          	<a ng-href="/#/class/{{classObj.professor}}">{{ classObj.professor }}</a> -->
 	          </li>
 	        </ul>
 	    </div>

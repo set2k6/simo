@@ -1,11 +1,15 @@
 angular.module("simo")
-.controller("FileUpCtrl", function ($timeout, fileUpFactory) {
+.controller("FileUpCtrl", function ($timeout, fileUpFactory, classService, $routeParams) {
 		const fileUp = this
+		const service = classService
+
+		const classObj = service.getClassByRouteParams($routeParams)
+		const ref = firebase.database().ref(`classArr/${classObj.key}/images`)
 
 		fileUp.heading = "Share Your ClassNotes"
 		// fileUp.photoURLs = []
 
-		firebase.database().ref('/images').on('value', snap => (
+		ref.on('value', snap => (
 			$timeout()
 				.then(() => snap.val())
 				.then(data => {
@@ -36,7 +40,7 @@ angular.module("simo")
 					return res.downloadURL
 				})
 				.then((url) => {
-					firebase.database().ref('/images').push({url})
+					ref.push({url})
 				})
 			// uploadTask.on('state_changed', null, null, () => {
 			// 	up.photoURLs.push(uploadTask.snapshot.downloadURL)
