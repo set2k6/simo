@@ -1,8 +1,8 @@
 angular.module('simo')
- .controller('AddClassCtrl', function ($scope, $location, AuthFactory, classService) {
+ .controller('AddClassCtrl', function ($scope, $location, AuthFactory, classService, $window) {
  	const classes = this;
-  const service = classService
-  $scope.classesList = service.classesList
+  this.service = classService
+  $scope.classesList = this.service.classesList
 
   $scope.user = null;
 
@@ -16,7 +16,15 @@ angular.module('simo')
   })
 
   this.addClass = (classObj) => {
-    this.service.addClass(classObj)
+    this.service.addClass(classObj).then(() => {
+      $scope.alert = {
+        type: "success",
+        message: "Class successfully added."
+      }
+      
+      $scope.classObj = {}
+      $scope.$digest()
+    })
   }
 
   $scope.addClassesList = () => {
@@ -29,6 +37,10 @@ angular.module('simo')
     else {
     }
 	}
+
+  $scope.closeAlert = function() {
+    $scope.alert = null;
+  }
 })
 
 
